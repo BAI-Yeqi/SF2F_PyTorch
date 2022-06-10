@@ -1,5 +1,5 @@
 # Speech Fusion to Face
-This is the officical PyTorch implementation for the paper PasteGAN: *Speech Fusion to Face: Bridging the Gap Between Human's Vocal Characteristics and Facial Imaging*.
+This is the officical PyTorch implementation for the paper *Speech Fusion to Face: Bridging the Gap Between Human's Vocal Characteristics and Facial Imaging*.
 
 The main paper of this work is currently under the review process of ACMMM 2022. Please refer to our [supplementary material](https://sf2f.github.io/) for more information about this paper.
 
