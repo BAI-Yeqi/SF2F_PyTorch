@@ -1,0 +1,50 @@
+# The implementation of NeurIPS 19 V2F baseline model
+# Log-related settings
+logs:
+  name: v2f
+  output_dir: output/
+# data-related settings
+data:
+  dataset: vox
+  data_opts_path: options/data_opts/vox.yaml
+  image_size: [64, 64]
+# model related settings
+generator:
+  arch: EncoderDecoder
+  options:
+    encoder_arch: V2F1DCNN
+    encoder_kwargs:
+      input_channel: 40
+      channels: [256, 384, 576, 864]
+      output_channel: 512
+      add_noise: True
+      normalize_embedding: True
+    decoder_arch: V2FDecoder
+    decoder_kwargs:
+      input_channel: 512
+      channels: [1024, 512, 256, 128, 64]
+      output_channel: 3
+discriminator:
+  generic:
+    normalization: none
+    # padding mode is set to unused because we are specifying padding value
+    padding: unused
+    activation: leakyrelu-0.2
+  # image discrimintor is implemented in AC Discriminator
+  identity:
+    # 'C{kernel_size}-{channel_out}-{stride}-{padding}'
+    arch: 'C1-32-1-0,C4-64-2-1,C4-128-2-1,C4-256-2-1,C4-512-1-0'
+    num_id: 0 # will be updated in train.py
+optim:
+  # Discriminator Loss Weights
+  d_loss_weight: 1.0
+  d_img_weight: -1
+  ac_loss_weight: 1.0
+  # Generator Loss Weights
+  gan_loss_type: 'gan'
+  l1_pixel_loss_weight: 100.0
+  # Perceptual Loss
+eval:
+  facenet:
+    deprocess_and_preprocess: True
+    crop_faces: True

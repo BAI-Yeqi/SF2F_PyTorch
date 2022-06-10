@@ -1,0 +1,52 @@
+# Optimal final version of encoder-decoder and Loss Function
+# Encoder: Inceptional 1D CNN
+# Decoder: Upsampling + CNN
+logs:
+  name: sf2f_1st_stage
+  output_dir: output/
+# data-related settings
+data:
+  dataset: vox
+  data_opts_path: options/data_opts/vox.yaml
+  image_size: [64, 64]
+# model related settings
+generator:
+  arch: EncoderDecoder
+  options:
+    encoder_arch: V2F1DCNN
+    encoder_kwargs:
+      input_channel: 40
+      channels: [256, 384, 576, 864]
+      output_channel: 512
+      normalize_embedding: True
+      inception_mode: True
+    decoder_arch: FaceGanDecoder
+    decoder_kwargs:
+      noise_dim: 512
+      mlp_normalization: none
+      normalization: batch
+      activation: leakyrelu-0.1
+discriminator:
+  generic:
+    normalization: batch
+    padding: valid
+    activation: leakyrelu-0.1
+  image:
+    arch: 'C4-64-2,C4-128-2,C4-256-2'
+  identity:
+    arch: 'C4-64-2,C4-128-2,C4-256-2'
+    num_id: 0 # will be updated in train.py
+optim:
+  # Discriminator Loss Weights
+  d_loss_weight: 1.0
+  d_img_weight: 1.0 #0.5
+  ac_loss_weight: 0.05
+  # Generator Loss Weights
+  gan_loss_type: 'gan'
+  l1_pixel_loss_weight: 10.0
+  # Perceptual Loss
+  perceptual_loss_weight: 100.0
+eval:
+  facenet:
+    deprocess_and_preprocess: True
+    crop_faces: True
