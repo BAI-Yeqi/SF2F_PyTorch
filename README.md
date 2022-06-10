@@ -3,6 +3,10 @@ This is the officical PyTorch implementation for the paper PasteGAN: *Speech Fus
 
 The main paper of this work is currently under the review process of ACMMM 2022. Please refer to our [supplementary material](https://sf2f.github.io/) for more information about this paper.
 
+[![license](https://img.shields.io/github/license/SF2F/SF2F_PyTorch.svg)](https://github.com/SF2F/SF2F_PyTorch/blob/main/LICENSE)
+[![open issues](https://isitmaintained.com/badge/open/SF2F/SF2F_PyTorch.svg)](https://github.com/SF2F/SF2F_PyTorch/issues)
+[![docs](https://img.shields.io/badge/docs-latest-blue)](https://github.com/SF2F/SF2F_PyTorch/blob/main/README.md)
+
 <img src="images/overview.png" align="center" width="50%">
 
 ## Released Models
