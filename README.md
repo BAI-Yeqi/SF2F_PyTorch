@@ -11,11 +11,11 @@ We release low resolution and mid resolution versions of SF2F. Our baseline mode
 
 |    Model                                                    | Output Resolution | VGGFace Score    |
 |:-----------------------------------------------------------:|:-----------------:|:----------------:|
-| [voice2face](./options/vox/baseline/v2f.yaml)               | 64 $\times$ 64    | 15.47 $\pm$ 0.67 |
-| [SF2F (no fuser)](options/vox/sf2f/sf2f_1st_stage.yaml)     | 64 $\times$ 64    | 18.59 $\pm$ 0.87 |
-| [SF2F](options/vox/sf2f/sf2f_fuser.yaml)                    | 64 $\times$ 64    | 19.49 $\pm$ 0.59 |
-| [SF2F (no fuser)](options/vox/sf2f/sf2f_mid_1st_stage.yaml) | 128 $\times$ 128  | 19.31 $\pm$ 0.65 |
-| [SF2F](options/vox/sf2f/sf2f_mid_fuser.yaml)                | 128 $\times$ 128  | 20.10 $\pm$ 0.47 |
+| [voice2face](https://github.com/SF2F/SF2F_PyTorch/tree/main/options/vox/baseline/v2f.yaml)               | 64 $\times$ 64    | 15.47 $\pm$ 0.67 |
+| [SF2F (no fuser)](https://github.com/SF2F/SF2F_PyTorch/tree/main/options/vox/sf2f/sf2f_1st_stage.yaml)     | 64 $\times$ 64    | 18.59 $\pm$ 0.87 |
+| [SF2F](https://github.com/SF2F/SF2F_PyTorch/tree/main/options/vox/sf2f/sf2f_fuser.yaml)                    | 64 $\times$ 64    | 19.49 $\pm$ 0.59 |
+| [SF2F (no fuser)](https://github.com/SF2F/SF2F_PyTorch/tree/main/options/vox/sf2f/sf2f_mid_1st_stage.yaml) | 128 $\times$ 128  | 19.31 $\pm$ 0.65 |
+| [SF2F](https://github.com/SF2F/SF2F_PyTorch/tree/main/options/vox/sf2f/sf2f_mid_fuser.yaml)                | 128 $\times$ 128  | 20.10 $\pm$ 0.47 |
 
 Instructions on the training and testing of above models are introduced in [GETTING_STARTED](./GETTING_STARTED.md). Pretrained weights will be released after the main paper is accepted.
 
