@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 ## Prepare Dataset
 
-**Face Data.** Please download the high-quality face data from [HQ-VoxCeleb](https://github.com/SF2F/HQ-VoxCeleb).
+**Face Data.** Please download the high-quality face data from [HQ-VoxCeleb](https://github.com/BAI-Yeqi/HQ-VoxCeleb).
 
 **Speech Data.** Please download speech data from VoxCeleb1 and VoxCeleb2 on their [Offical Website](https://www.robots.ox.ac.uk/~vgg/data/voxceleb/).
 
