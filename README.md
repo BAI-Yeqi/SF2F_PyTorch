@@ -1,4 +1,5 @@
-# Speech Fusion to Face
+# Speech Fusion to Face: Bridging the Gap Between Human's Vocal Characteristics and Facial Imaging
+
 This is the officical PyTorch implementation for the paper *Speech Fusion to Face: Bridging the Gap Between Human's Vocal Characteristics and Facial Imaging*.
 
 The main paper of this work is published on ACMMM 2022 as a full paper [[arxiv](https://arxiv.org/abs/2006.05888)]. Please refer to our [supplementary material](https://sf2f.github.io/) for more information about this paper.
