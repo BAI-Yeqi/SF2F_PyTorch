@@ -46,3 +46,15 @@ To provide the users of this repo a better understand of our implementation, we 
 
 ## Getting Started
 To learn about environment setup, data preparation, launch of training, visualization, and evaluation, please refer to [GETTING_STARTED](./GETTING_STARTED.md).
+
+## Citation
+If you find this project useful in your research, please consider cite:
+```
+@inproceedings{bai2022speech,
+  title={Speech Fusion to Face: Bridging the Gap Between Human's Vocal Characteristics and Facial Imaging},
+  author={Bai, Yeqi and Ma, Tao and Wang, Lipo and Zhang, Zhenjie},
+  booktitle={Proceedings of the 30th ACM International Conference on Multimedia},
+  pages={2042--2050},
+  year={2022}
+}
+```
