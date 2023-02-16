@@ -5,7 +5,7 @@ This is the officical PyTorch implementation for the paper *Speech Fusion to Fac
 The main paper of this work is published on ACMMM 2022 as a full paper [[acmdl](https://dl.acm.org/doi/10.1145/3503161.3547850)][[arxiv](https://arxiv.org/abs/2006.05888)]. Please refer to our [supplementary material](https://sf2f.github.io/) for more information about this paper.
 
 [![license](https://img.shields.io/github/license/BAI-Yeqi/SF2F_PyTorch.svg)](https://github.com/BAI-Yeqi/SF2F_PyTorch/blob/main/LICENSE)
-[![open issues](https://isitmaintained.com/badge/open/BAI-Yeqi/SF2F_PyTorch.svg)](https://github.com/BAI-Yeqi/SF2F_PyTorch/issues)
+[![open issues](https://isitmaintained.com/badge/open/SF2F/SF2F_PyTorch.svg)](https://github.com/SF2F/SF2F_PyTorch/issues)
 [![docs](https://img.shields.io/badge/docs-latest-blue)](https://github.com/BAI-Yeqi/SF2F_PyTorch/blob/main/README.md)
 
 <img src="images/overview.png" align="center" width="50%">
