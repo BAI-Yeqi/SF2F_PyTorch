@@ -23,6 +23,7 @@ from tensorflow.io import gfile
 import sys
 sys.path.append('./')
 from utils.wav2mel import wav_to_mel
+from concurrent.futures import ProcessPoolExecutor, as_completed
 
 
 VOX_DIR = os.path.join('./data/VoxCeleb')
@@ -150,25 +151,54 @@ class WavConvertor:
         gfile.mkdir(self.vox1_mel)
         gfile.mkdir(self.vox2_mel)
 
-    def convert_wav_to_mel(self):
-        counter = 0
+    def _worker(self, job_id, infos):
+            for i, info in enumerate(infos):
+                self.convert_identity(info[0], info[1], info[2])
+                print('job #{} prcess {} {} done'.format(job_id, i, info[0]))
+                
+    def convert_wav_to_mel(self, n_jobs=1):
+
+        infos = []
         for wav_dir in self.vox1_wav_dirs:
-            self.convert_identity(wav_dir, self.vox1_mel, 'vox1')
-            counter = counter + 1
-            if counter%100 == 0:
-                print(counter)
+            infos.append((wav_dir, self.vox1_mel, 'vox1'))
+        print(len(infos))
+        # l1 = len(infos)
         for wav_dir in self.vox2_wav_dirs:
-            self.convert_identity(wav_dir, self.vox2_mel, 'vox2')
-            counter = counter + 1
-            if counter%100 == 0:
-                print(counter)
+            infos.append((wav_dir, self.vox2_mel, 'vox2'))
+        # print(len(infos) - l1)
+        
+        n_wav_dirs = len(infos)
+        n_jobs = n_jobs if n_jobs <= n_wav_dirs else n_wav_dirs
+        n_wav_dirs_per_job = n_wav_dirs // n_jobs
+        process_index = []
+        for ii in range(n_jobs):
+            process_index.append([ii*n_wav_dirs_per_job, (ii+1)*n_wav_dirs_per_job])
+        if n_jobs * n_wav_dirs_per_job != n_wav_dirs:
+            process_index[-1][-1] = n_wav_dirs
+        
+        futures = set()
+        with ProcessPoolExecutor() as executor:
+            for job_id in range(n_jobs):
+                # future = executor.submit(_worker, process_index[job_id][0], process_index[job_id][1])
+                future = executor.submit(self._worker, job_id, infos[process_index[job_id][0]:process_index[job_id][1]])
+                futures.add(future)
+                print('submit job {}, {}-{}'.format(job_id, process_index[job_id][0], process_index[job_id][1]))
+            for future in as_completed(futures):
+                pass
+        
         print("Done.")
 
 
 
 def main():
+    
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--n_jobs', '-n_jobs', type=int, default=1)
+    args = parser.parse_args()
+    
     wav_convertor = WavConvertor()
-    wav_convertor.convert_wav_to_mel()
+    wav_convertor.convert_wav_to_mel(args.n_jobs)
     #gfile.mkdir('./data/test')
     #wav_convertor.convert_identity(
     #    'data/VoxCeleb/raw_wav/vox1/dev/id10001/',
