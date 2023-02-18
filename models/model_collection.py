@@ -2,7 +2,6 @@
 A collection of all the models, for the convenience of internal calling
 '''
 
-#from .face_gan import FaceGAN
 
 # Lower level encoder decoders
 try:
@@ -13,11 +12,9 @@ except:
 try:
     from .face_decoders import V2FDecoder, AttnV2FDecoder, MRDecoder, \
         FaceGanDecoder, FaceGanDecoder_v2
-        # PganDecoder
 except:
     from face_decoders import V2FDecoder, AttnV2FDecoder, MRDecoder, \
         FaceGanDecoder, FaceGanDecoder_v2
-        # PganDecoder
 
 try:
     from .attention import Attention
