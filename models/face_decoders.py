@@ -22,10 +22,10 @@ try:
     from .networks import upBlock, GLU
 except:
     from networks import upBlock, GLU
-try:
-    from .pgan import PGan_Net
-except:
-    from pgan import PGan_Net
+# try:
+#     from .pgan import PGan_Net
+# except:
+#     from pgan import PGan_Net
 
 
 class DeConv2DBLK(nn.Module):
@@ -584,3 +584,4 @@ if __name__ == '__main__':
                           depthOtherScales=[512,512,512,256])
 
     img = pgandecoder(voice_embeddings)
+    
