@@ -1,12 +1,4 @@
 from .model_setup import *
-
-# Generator
-# from .paste_gan import PasteGAN
-# from .face_gan import FaceGAN
-# from .face_gan_v2 import FaceGAN_v2
-# from .face_gan_crn import FaceGAN_CRN
-# from .face_gan_crn_v2 import FaceGAN_CRN_v2
-# from .face_recon import Face_Recon
 from .encoder_decoder import EncoderDecoder
 
 # Lower level encoder decoders
