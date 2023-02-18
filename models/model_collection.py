@@ -12,10 +12,12 @@ except:
 
 try:
     from .face_decoders import V2FDecoder, AttnV2FDecoder, MRDecoder, \
-        FaceGanDecoder, FaceGanDecoder_v2, PganDecoder
+        FaceGanDecoder, FaceGanDecoder_v2
+        # PganDecoder
 except:
     from face_decoders import V2FDecoder, AttnV2FDecoder, MRDecoder, \
-        FaceGanDecoder, FaceGanDecoder_v2, PganDecoder
+        FaceGanDecoder, FaceGanDecoder_v2
+        # PganDecoder
 
 try:
     from .attention import Attention
@@ -32,7 +34,7 @@ class ModelCollection():
         self.MRDecoder = MRDecoder
         self.FaceGanDecoder = FaceGanDecoder
         self.FaceGanDecoder_v2 = FaceGanDecoder_v2
-        self.PganDecoder = PganDecoder
+        # self.PganDecoder = PganDecoder
         self.Attention = Attention
 
 
