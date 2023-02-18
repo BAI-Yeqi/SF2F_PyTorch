@@ -84,9 +84,11 @@ options = {
 }
 
 with open(args.path_opts, "r") as f:
-    options_yaml = yaml.load(f)
+    # options_yaml = yaml.load(f)
+    options_yaml = yaml.full_load(f)
 with open(options_yaml["data"]["data_opts_path"], "r") as f:
-    data_opts = yaml.load(f)
+    # data_opts = yaml.load(f)
+    data_opts = yaml.full_load(f)
     options_yaml["data"]["data_opts"] = data_opts
 
 options = update_values(options, options_yaml)
