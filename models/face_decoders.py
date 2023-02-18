@@ -22,10 +22,6 @@ try:
     from .networks import upBlock, GLU
 except:
     from networks import upBlock, GLU
-# try:
-#     from .pgan import PGan_Net
-# except:
-#     from pgan import PGan_Net
 
 
 class DeConv2DBLK(nn.Module):
