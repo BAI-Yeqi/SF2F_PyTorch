@@ -5,8 +5,6 @@ import yaml
 from utils import update_values
 from utils import int_tuple, float_tuple, str_tuple, bool_flag
 
-COCO_DIR = os.path.expanduser('data/coco')
-
 parser = argparse.ArgumentParser()
 
 # Optimization hyperparameters
@@ -84,10 +82,8 @@ options = {
 }
 
 with open(args.path_opts, "r") as f:
-    # options_yaml = yaml.load(f)
     options_yaml = yaml.full_load(f)
 with open(options_yaml["data"]["data_opts_path"], "r") as f:
-    # data_opts = yaml.load(f)
     data_opts = yaml.full_load(f)
     options_yaml["data"]["data_opts"] = data_opts
 
