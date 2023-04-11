@@ -175,7 +175,7 @@ class VoxDataset(Dataset):
             log_mel = self.mel_transform(log_mel)
             mel_length = log_mel.shape[1]
             if self.mel_segments_rand_start:
-                start = np.random.randint(mel_length - window_length)
+                start = np.random.randint(mel_length - window_length) if mel_length >= window_length else 0
                 log_mel = log_mel[:, start:]
                 mel_length = log_mel.shape[1]
             # Calulate the number of windows that can be generated
